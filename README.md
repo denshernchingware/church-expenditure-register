@@ -153,8 +153,8 @@ Features:
 - Running balance tracking
 - Recalculation on updates
 
-![Expenditures List](./docs/images/expenditures-list.png)
-![Expenditures Form](./docs/images/expenditures-form.png)
+![Expenditures List](./docs/images/expenditures-List.png)
+![Expenditures Form](./docs/images/expenditures-Form.png)
 
 ---
 
