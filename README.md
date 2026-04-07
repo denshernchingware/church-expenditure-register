@@ -1,66 +1,307 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Church Management System
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A Laravel-based church management system built with Filament admin panel for managing church members, offerings, expenditures, and attendance.
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Table of Contents
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+1. [System Overview](#system-overview)
+2. [Technology Stack](#technology-stack)
+3. [Features](#features)
+4. [Navigation Structure](#navigation-structure)
+5. [Pages & Resources](#pages--resources)
+6. [Database Models](#database-models)
+7. [Installation](#installation)
+8. [Usage Guide](#usage-guide)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## System Overview
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+This application is designed to help churches manage their financial records, member information, and attendance tracking. It provides a comprehensive dashboard for viewing key metrics and detailed reports for analysis.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+---
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Technology Stack
 
-## Laravel Sponsors
+- **Backend**: Laravel 12
+- **Admin Panel**: Filament 4.x
+- **Database**: MySQL
+- **Frontend**: Tailwind CSS
+- **PHP**: 8.2+
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+---
 
-### Premium Partners
+## Features
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+### Church Records
+- Member management (add, edit, view, delete)
+- Attendance tracking per service date
 
-## Contributing
+### Finance Management
+- Offering recording with multiple offering types (tithing, general, chairs, windows, etc.)
+- Expenditure tracking with automatic balance calculation
+- Financial reports and analysis
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Reporting
+- Offering Financial Report
+- Consolidated Reports (monthly summaries, top contributors)
 
-## Code of Conduct
+---
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## Navigation Structure
 
-## Security Vulnerabilities
+The application has two main navigation groups:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### Church Records
+- **Members** - Manage church member information
+- **Attendance** - Track attendance per service
+
+### Finance
+- **Offerings** - Record and manage offerings
+- **Expenditures** - Track church expenses
+- **Offering Report** - Detailed offering financial report
+- **Consolidated Reports** - Overview with stats and monthly summaries
+
+---
+
+## Pages & Resources
+
+### Dashboard
+
+The main dashboard provides an overview of key church metrics including:
+- Total members
+- Total offerings
+- Total expenditures
+- Current balance
+- Present today (attendance)
+- Recent members table
+
+![Dashboard](./docs/images/dashboard.png)
+
+---
+
+### Church Records Group
+
+#### Members Resource
+
+Manage church member information with the following fields:
+- Name
+- Last Name  
+- Email
+- Phone
+- Cell Group
+- Nyika Area
+- Tabhera Area
+- Address
+- Created Date
+
+Features:
+- List view with search and sort
+- Create new member form
+- View member details
+- Edit member information
+- Delete member
+
+![Members List](./docs/images/members-list.png)
+![Members Form](./docs/images/members-form.png)
+
+#### Attendance Resource
+
+Track service attendance with fields:
+- Date
+- Service Type (Morning Service, Bible Study, etc.)
+- Actual Count
+- Status (Present, Absent)
+
+Features:
+- Calendar-based date selection
+- Service type filtering
+- Attendance status tracking
+
+![attendances](./docs/images/attendances.png)
+
+---
+
+### Finance Group
+
+#### Offerings Resource
+
+Record member offerings with:
+- Date
+- Member selection
+- Multiple offering items (type and amount)
+- Auto-calculated total
+
+Supporting model:
+- **OfferingItem** - Individual offering entries per offering
+
+![Offerings List](./docs/images/offerings-list.png)
+![Offerings Form](./docs/images/offerings-form.png)
+
+#### Expenditures Resource
+
+Track church expenses with:
+- Date
+- Details/Description
+- Amount
+- Auto-calculated Income and Balance
+
+Features:
+- Automatic income calculation (Total Offerings - Previous Expenditures)
+- Running balance tracking
+- Recalculation on updates
+
+![Expenditures List](./docs/images/expenditures-list.png)
+![Expenditures Form](./docs/images/expenditures-form.png)
+
+---
+
+### Reports Pages
+
+#### Offering Report
+
+Comprehensive offering report showing:
+1. **Member Offerings Table** - Breakdown by member and offering type
+2. **Top 10 Members** - Highest contributing members
+3. **Monthly Financials** - Monthly expenditure vs offering income comparison
+
+![Offering Report Main](./docs/images/offering-report-main.png)
+
+
+
+
+## Database Models
+
+### User (Member)
+
+```php
+class User extends Model
+{
+    // Fields: name, last_name, email, phone, 
+    //         cell, nyika, tabhera, address
+}
+```
+
+### Offering
+
+```php
+class Offering extends Model
+{
+    // Fields: user_id, date, total_amount
+    // Relationships: user, items (hasMany OfferingItem)
+}
+```
+
+### OfferingItem
+
+```php
+class OfferingItem extends Model
+{
+    // Fields: offering_id, type, amount
+    // Relationships: offering (belongsTo)
+}
+```
+
+### Expenditure
+
+```php
+class Expenditure extends Model
+{
+    // Fields: date, details, amount, income, balance
+    // Features: Auto-calculation of income/balance
+    // Methods: recalculateAll()
+}
+```
+
+### Attendance
+
+```php
+class Attendance extends Model
+{
+    // Fields: date, service_type, actual_count, status
+}
+```
+
+---
+
+## Installation
+
+### Prerequisites
+- PHP 8.2+
+- Composer
+- Node.js & NPM
+
+### Steps
+
+1. **Install dependencies**
+   ```bash
+   composer install
+   npm install
+   ```
+
+2. **Setup environment**
+   ```bash
+   cp .env.example .env
+   php artisan key:generate
+   ```
+
+3. **Run migrations**
+   ```bash
+   php artisan migrate
+   ```
+
+4. **Build assets**
+   ```bash
+   npm run build
+   ```
+
+5. **Start development server**
+   ```bash
+   php artisan serve
+   ```
+
+6. **Access admin panel**
+   - URL: `http://localhost:8000/admin`
+   - Login with your credentials
+
+---
+
+## Usage Guide
+
+### Recording an Offering
+
+1. Navigate to **Finance > Offerings**
+2. Click **New Offering**
+3. Select the member
+4. Choose the date
+5. Add offering items with types and amounts
+6. Save
+
+### Recording an Expenditure
+
+1. Navigate to **Finance > Expenditures**
+2. Click **New Expenditure**
+3. Enter the date
+4. Provide description/details
+5. Enter the amount
+6. Save (income and balance auto-calculate)
+
+### Viewing Reports
+
+1. **Offering Report**: Finance > Offering Report
+   - View by member and type
+   - See top contributors
+   - Compare monthly income vs expenditure
+
+
+## Support
+
+For issues or questions, please open an issue on the project repository.
+
+---
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+MIT License
