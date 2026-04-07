@@ -154,7 +154,7 @@ Features:
 - Recalculation on updates
 
 ![Expenditures List](./docs/images/expenditures-list.png)
-![Expenditures Form](./docs/images/expenditures-Form.png)
+![Expenditures Form](./docs/images/expenditures-form.png)
 
 ---
 
