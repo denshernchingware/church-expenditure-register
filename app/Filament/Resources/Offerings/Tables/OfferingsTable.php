@@ -25,7 +25,7 @@ class OfferingsTable
                 ->sortable(),
 
             TextColumn::make('total_amount')
-                ->money('KES')
+                ->money('INR')
                 ->sortable(),
             ])
             ->filters([

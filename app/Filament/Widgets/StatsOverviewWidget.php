@@ -29,17 +29,17 @@ class StatsOverviewWidget extends BaseWidget
                 ->descriptionIcon('heroicon-m-users')
                 ->color('primary'),
 
-            Stat::make('Total Offerings', 'KES ' . number_format($totalOfferings, 2))
+            Stat::make('Total Offerings', '₹ ' . number_format($totalOfferings, 2))
                 ->description($offeringCount . ' offering records')
                 ->descriptionIcon('heroicon-m-banknotes')
                 ->color('success'),
 
-            Stat::make('Total Expenditure', 'KES ' . number_format($totalExpended, 2))
+            Stat::make('Total Expenditure', '₹ ' . number_format($totalExpended, 2))
                 ->description('All recorded expenses')
                 ->descriptionIcon('heroicon-m-receipt-percent')
                 ->color('danger'),
 
-            Stat::make('Current Balance', 'KES ' . number_format($currentBalance, 2))
+            Stat::make('Current Balance', '₹ ' . number_format($currentBalance, 2))
                 ->description('Cash in hand')
                 ->descriptionIcon('heroicon-m-currency-dollar')
                 ->color($currentBalance >= 0 ? 'success' : 'danger'),

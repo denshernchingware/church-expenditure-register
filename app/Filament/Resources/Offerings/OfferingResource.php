@@ -13,6 +13,7 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use UnitEnum;
 
 class OfferingResource extends Resource
 {
@@ -23,6 +24,8 @@ class OfferingResource extends Resource
     protected static ?string $navigationLabel = 'Offerings';
 
     protected static ?int $navigationSort = 3;
+
+    protected static string|UnitEnum|null $navigationGroup = 'Finance';
 
     public static function form(Schema $schema): Schema
     {
@@ -40,6 +43,8 @@ class OfferingResource extends Resource
             //
         ];
     }
+
+   
 
     public static function getPages(): array
     {

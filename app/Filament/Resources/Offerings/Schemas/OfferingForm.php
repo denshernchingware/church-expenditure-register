@@ -38,22 +38,35 @@ class OfferingForm
                     Repeater::make('items')
                         ->relationship() // Offering hasMany OfferingItem
                     ->live()
-                        ->schema([
+                    ->afterStateUpdated(fn($get, $set) => self::updateTotal($set, $get))
+                    ->schema([
 
                             TextInput::make('type')
                                 ->label('Name')
                                 ->required(),
 
-                            TextInput::make('amount')
-                                ->numeric()
-                                ->required()
-                                ->reactive()
-                            ->live()
-                        ->afterStateUpdated(function ($state, $set) {
-                            $total = collect($state)
-                                ->sum(fn($item) => (float) ($item['amount'] ?? 0));
+                        //     TextInput::make('amount')
+                        //         ->numeric()
+                        //         ->required()
+                        //         ->reactive()
+                        //     ->live()
+                        // ->afterStateUpdated(function ($state, $set) {
+                        //     $total = collect($state)
+                        //         ->sum(fn($item) => (float) ($item['amount'] ?? 0));
 
-                            $set('total_amount', $total);
+                        //     $set('total_amount', $total);
+                        TextInput::make('amount')
+                            ->numeric()
+                            ->required()
+                            ->live()
+                            ->afterStateUpdated(function ($get, $set) {
+                                $items = $get('items') ?? [];
+
+                                $total = collect($items)
+                                    ->sum(fn($item) => (float) ($item['amount'] ?? 0));
+
+                                $set('total_amount', $total);
+                          
                         })
 
                         ])
@@ -65,7 +78,7 @@ class OfferingForm
                         ->label('Total')
                         ->disabled()
                         ->dehydrated(true)
-                        ->prefix('KES'),
+                        ->prefix('₹ '),
 
                 ])
             ]);

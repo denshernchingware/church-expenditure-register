@@ -53,10 +53,12 @@ class Offering extends Model
     {
         return $this->items->where('type', 'general')->sum('amount');
     }
-    protected static function booted()
-    {
-        static::saving(function ($offering) {
-            $offering->total_amount = $offering->items->sum('amount');
-        });
-    }
+    // protected static function booted()
+    // {
+    //     static::saving(function ($offering) {
+    //         $offering->total_amount = $offering->items->sum('amount');
+    //     });
+    // }
+    
+   
 }
