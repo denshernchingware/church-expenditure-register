@@ -2,9 +2,8 @@
 
 namespace App\Filament\Pages;
 
-use App\Models\Expenditure;
+
 use App\Models\Offering;
-use App\Models\OfferingItem;
 use Filament\Pages\Page;
 use Illuminate\Support\Facades\DB;
 use Filament\Support\Icons\Heroicon;
